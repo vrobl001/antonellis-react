@@ -1,0 +1,21 @@
+.loginContainer h4 {
+  margin: 1rem;
+  position: relative;
+}
+
+.loginContainer p {
+  color: red;
+  font-size: 1rem;
+  position: absolute;
+  top: 14.25rem;
+}
+
+.loginContainer a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.loginContainer a:visited {
+  color: blue;
+}
+/*# sourceMappingURL=LoginForm.module.css.map */
