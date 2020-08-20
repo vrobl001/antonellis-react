@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const foodsCtrl = require('../../controllers/food');
+const foodCtrl = require('../../controllers/food');
 
 // GET /foods/new
-router.get('/', foodsCtrl.index);
-router.post('/', foodsCtrl.create);
+router.get('/', foodCtrl.index);
+router.post('/', foodCtrl.create);
 
 // Update
-router.put('/:id', foodsCtrl.update);
+router.put('/:id', foodCtrl.update);
 
 // Delete
-router.delete('/:id', foodsCtrl.delete);
+router.delete('/:id', foodCtrl.delete);
 
 function isAuthenticated(req, res, next) {
   if (req.user) return next();
