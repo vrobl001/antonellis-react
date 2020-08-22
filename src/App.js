@@ -11,9 +11,11 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Menu from './pages/Menu/Menu';
 import Catering from './pages/Catering/Catering';
+import Coupons from './pages/Coupons/Coupons';
 import Blog from './pages/Blog/Blog';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
+import Profile from './pages/Profile/Profile';
 
 export default class App extends Component {
   state = this.initialState;
@@ -32,6 +34,10 @@ export default class App extends Component {
     this.setState({ user: userService.getUser() });
   };
 
+  componentDidMount = () => {
+    console.log('user', this.state.user);
+  };
+
   render() {
     return (
       <div className='app-outer-container'>
@@ -41,6 +47,7 @@ export default class App extends Component {
             <Route exact path='/' render={() => <Home />} />
             <Route exact path='/menu' render={() => <Menu />} />
             <Route exact path='/catering' render={() => <Catering />} />
+            <Route exact path='/coupons' render={() => <Coupons />} />
             <Route exact path='/blog' render={() => <Blog />} />
             <Route
               exact
@@ -52,6 +59,7 @@ export default class App extends Component {
               path='/signup'
               render={(props) => <Signup {...props} handleSignupOrLogin={this.handleSignupOrLogin} />}
             />
+            <Route exact path='/profile' render={(props) => <Profile {...props} />} />
           </Switch>
         </div>
       </div>
