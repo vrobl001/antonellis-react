@@ -4,7 +4,7 @@ import '../../App.css';
 
 export default function Login(props) {
   return (
-    <div className='pageContainer'>
+    <div className='pageContainer loginContainer'>
       <LoginForm {...props} />
     </div>
   );
