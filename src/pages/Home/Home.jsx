@@ -1,9 +1,8 @@
 import React from 'react';
-import styles from './Home.module.css';
-
+import '../../App.css';
 export default function Home(props) {
   return (
-    <div>
+    <div className='pageContainer'>
       <h1>Home Page</h1>
     </div>
   );

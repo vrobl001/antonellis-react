@@ -1,10 +1,10 @@
 import React from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import styles from './Login.module.css';
+import '../../App.css';
 
 export default function Login(props) {
   return (
-    <div className={styles.loginFormContainer}>
+    <div className='pageContainer'>
       <LoginForm {...props} />
     </div>
   );

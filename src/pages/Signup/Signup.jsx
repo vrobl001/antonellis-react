@@ -1,10 +1,10 @@
 import React from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
-import styles from './Signup.module.css';
+import '../../App.css';
 
 export default function Signup(props) {
   return (
-    <div className={styles.signupFormContainer}>
+    <div className='pageContainer'>
       <SignupForm {...props} />
     </div>
   );

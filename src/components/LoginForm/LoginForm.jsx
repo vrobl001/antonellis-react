@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import userService from '../../utils/userService';
 import { Link } from 'react-router-dom';
-import styles from './LoginForm.module.css';
+import '../../App.css';
 
 // Material UI
 import Button from '@material-ui/core/Button';
@@ -72,7 +72,7 @@ export default function Signup(props) {
   };
 
   return (
-    <Container className={styles.loginContainer} component='main' maxWidth='xs'>
+    <Container className='loginContainer' component='main' maxWidth='xs'>
       <div className={classes.paper}>
         <Typography component='h4' variant='h4'>
           Sign in

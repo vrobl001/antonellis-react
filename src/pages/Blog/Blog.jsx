@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Blog.module.css';
+import '../../App.css';
 
 export default function Blog(props) {
   return (
-    <div>
+    <div className='pageContainer'>
       <h1>Blog Page</h1>
     </div>
   );
