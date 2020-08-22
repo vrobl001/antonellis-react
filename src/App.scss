@@ -26,14 +26,12 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-
   .app-inner-container {
     background-color: rgb(251, 233, 202);
     flex-grow: 1;
+    .pageContainer {
+      height: 100%;
+      padding-top: 7rem;
+    }
   }
-}
-
-.pageContainer {
-  flex-grow: 1;
-  margin-top: 7rem;
 }

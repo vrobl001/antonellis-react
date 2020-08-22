@@ -1,32 +1,62 @@
-.pageContainer {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  margin-top: 7rem;
+.loginContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signupContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .cart {
   color: white;
 }
 
-.loginContainer h4 {
-  margin: 1rem;
+.loginFormContainer {
+  width: 40rem;
+  margin-top: 5rem;
+}
+
+.loginFormContainer h4 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.loginFormContainer .errorContainer {
   position: relative;
 }
 
-.loginContainer p {
+.loginFormContainer p {
   color: red;
   font-size: 1rem;
+  left: 38.5%;
+  margin: auto;
   position: absolute;
-  top: 14.25rem;
+  top: -2rem;
 }
 
-.loginContainer a {
+.loginFormContainer .signupLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loginFormContainer a {
   text-decoration: none;
-  text-align: center;
 }
 
-.loginContainer a:visited {
+.loginFormContainer a:visited {
   color: blue;
 }
 
@@ -98,6 +128,7 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  padding-right: 1rem;
   width: 100%;
   text-shadow: 1px 1px black;
 }
@@ -159,30 +190,44 @@
   margin-right: 1rem;
 }
 
-.signupContainer h4 {
-  margin: 1rem;
+.signupFormContainer {
+  width: 40rem;
+  margin-top: 5rem;
+}
+
+.signupFormContainer h4 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signupFormContainer .errorContainer {
   position: relative;
 }
 
-.signupContainer p {
+.signupFormContainer p {
   color: red;
   font-size: 1rem;
-  position: absolute;
-  top: 14.25rem;
-}
-
-.signupContainer a {
-  text-decoration: none;
-  text-align: center;
-}
-
-.signupContainer a:visited {
-  color: blue;
-}
-
-.signupCard {
-  width: 60%;
+  left: 38.5%;
   margin: auto;
+  position: absolute;
+  top: -2rem;
+}
+
+.signupFormContainer .loginLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.signupFormContainer a {
+  text-decoration: none;
+}
+
+.signupFormContainer a:visited {
+  color: blue;
 }
 
 * {
@@ -210,10 +255,8 @@
           flex-grow: 1;
 }
 
-.pageContainer {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  margin-top: 7rem;
+.app-outer-container .app-inner-container .pageContainer {
+  height: 100%;
+  padding-top: 7rem;
 }
 /*# sourceMappingURL=App.css.map */
