@@ -3,7 +3,7 @@ import '../../App.css';
 
 export default function Catering(props) {
   return (
-    <div className='pageContainer'>
+    <div>
       <h1>Catering Page</h1>
     </div>
   );

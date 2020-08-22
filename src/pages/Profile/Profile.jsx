@@ -4,7 +4,7 @@ import '../../App.css';
 
 export default function Profile(props) {
   return (
-    <div className='pageContainer'>
+    <div>
       <ProfileForm {...props} />
     </div>
   );

@@ -3,7 +3,7 @@ import '../../App.css';
 
 export default function Coupons() {
   return (
-    <div className='pageContainer'>
+    <div>
       <h1>Coupons</h1>
     </div>
   );

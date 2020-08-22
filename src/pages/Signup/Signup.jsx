@@ -4,7 +4,7 @@ import '../../App.css';
 
 export default function Signup(props) {
   return (
-    <div className='pageContainer signupContainer'>
+    <div className='signupContainer'>
       <SignupForm {...props} />
     </div>
   );

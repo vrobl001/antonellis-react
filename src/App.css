@@ -253,10 +253,6 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-}
-
-.app-outer-container .app-inner-container .pageContainer {
-  height: 100%;
   padding-top: 7rem;
 }
 /*# sourceMappingURL=App.css.map */
