@@ -1,4 +1,4 @@
-const Profile = require('../models/profile');
+const User = require('../models/user');
 
 module.exports = {
   create,
@@ -9,8 +9,13 @@ module.exports = {
 
 async function create(req, res) {
   try {
-    const profile = await Profile.create(req.body);
-    res.json({ profile });
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key];
+    }
+    User.findById(req.params.id, function (err, user) {
+      user.profile.push(req.body);
+      user.save();
+    });
   } catch (error) {
     throw new Error('unable to create profile');
   }
