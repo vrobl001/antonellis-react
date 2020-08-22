@@ -4,6 +4,34 @@ const Schema = mongoose.Schema;
 
 const SALT_ROUNDS = 6;
 
+const profileSchema = new Schema(
+  {
+    phone: {
+      number: String,
+      classification: {
+        type: String,
+        enum: ['House', 'Mobile'],
+      },
+    },
+    address: {
+      classification: {
+        type: String,
+        enum: ['Apartment', 'Hotel', 'House', 'Work'],
+      },
+      street: String,
+      apt: Number,
+      city: String,
+      state: String,
+      zip: Number,
+    },
+    signUpDate: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  { timestamps: true }
+);
+
 const userSchema = new Schema(
   {
     userName: {
