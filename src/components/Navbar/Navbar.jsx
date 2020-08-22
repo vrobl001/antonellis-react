@@ -1,65 +1,97 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
-import styles from './Navbar.module.css';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Cart from '../Cart/Cart';
+import '../../App.css';
 
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-
-function ElevationScroll(props) {
-  const { children } = props;
-
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
-
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
-
-ElevationScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-};
+// Material UI
+import IconButton from '@material-ui/core/IconButton';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
 
 export default function Navbar(props) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const conditionalUI = userService.getUser() ? (
-    <div className={styles.rightNav}>
+    <>
       <p>
         Welcome
-        <Link to='/profile' onClick={props.handleActiveApp}>
-          <span>{props.user.userName.firstName}</span>!
-        </Link>
+        <span className='userName'>{props.user.userName.firstName}</span>!
       </p>
 
-      <li>
-        <Link to='/login' onClick={props.handleLogout}>
-          Log out
-        </Link>
-      </li>
-    </div>
+      <IconButton
+        aria-label='account of current user'
+        aria-controls='menu-appbar'
+        aria-haspopup='true'
+        onClick={handleMenu}
+        color='inherit'>
+        <AccountCircle fontSize='large' />
+      </IconButton>
+      <Menu
+        id='menu-appbar'
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={open}
+        onClose={handleClose}>
+        <MenuItem>
+          <Link to='/profile' style={{ textDecoration: 'none', color: 'black' }}>
+            Profile
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link style={{ textDecoration: 'none', color: 'black' }}>Past Orders</Link>
+        </MenuItem>
+        <hr />
+        <MenuItem>
+          <Link to='/login' onClick={props.handleLogout} style={{ textDecoration: 'none', color: 'black' }}>
+            Log out
+          </Link>
+        </MenuItem>
+      </Menu>
+    </>
   ) : (
-    <div className={styles.rightNav}>
+    <>
       <li>
         <Link to='/login'>Log in</Link>
       </li>
-    </div>
+    </>
   );
   return (
-    <React.Fragment>
-      <ElevationScroll {...props}>
-        <AppBar>
-          <Toolbar className={styles.navbar}>
-            <Typography variant='h6'>Antonellis Pizza</Typography>
-            <ul>{conditionalUI}</ul>
-          </Toolbar>
-        </AppBar>
-      </ElevationScroll>
-      <Toolbar />
-    </React.Fragment>
+    <div className='navbarOuterContainer'>
+      <div className='imageContainer'>
+        <Link to='/'>
+          <img src='/images/brand-logo.svg' />
+        </Link>
+      </div>
+      <div className='navbarInnerContainer'>
+        <div className='upperNav'>{conditionalUI}</div>
+        <div className='lowerNav'>
+          <div className='menuLinks'>
+            <Link to='/menu'>Menu</Link>
+            <Link to='/catering'>Catering</Link>
+            <Link to='/blog'>Blog</Link>
+            <Link to='/coupons'>Coupons</Link>
+          </div>
+          <div className='cart'>
+            <Cart />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
