@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: antonellis-react-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: antonellis-react
+          image: vrobl001/antonellis-react:latest
+          resources:
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DANGEROUSLY_DISABLE_HOST_CHECK
+              value: "true"
+            - name: DATABASE_URL
+              value: mongodb://mongo-service/Antonellis?retryWrites=true&w=majority
+            - name: SECRET
+              value: zouzxhcvozuh

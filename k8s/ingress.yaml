@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+spec:
+  tls:
+    - hosts:
+        - antonellis-react.localhost
+  rules:
+    - host: antonellis-react.localhost
+      http:
+        paths:
+          - backend:
+              serviceName: antonellis-react-service
+              servicePort: 3000
