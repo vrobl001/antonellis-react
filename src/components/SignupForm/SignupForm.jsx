@@ -5,37 +5,13 @@ import '../../App.css';
 
 // Material UI
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
 import CardContent from '@material-ui/core/CardContent';
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(15),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
 export default function SignupForm(props) {
-  const classes = useStyles();
-
   const [form, setState] = useState({
     userName: {
       firstName: '',
@@ -94,7 +70,7 @@ export default function SignupForm(props) {
         email: '',
         password: '',
         passwordConf: '',
-        error: error.message,
+        error: 'error.message',
       });
     }
   };
@@ -112,14 +88,14 @@ export default function SignupForm(props) {
   };
 
   return (
-    <div className='pageContainer'>
+    <div className='signupFormContainer'>
       <Card className='signupCard'>
-        <CardContent className='signupContainer'>
+        <CardContent>
           <Typography component='h4' variant='h4'>
             Sign up
           </Typography>
-          {form.error && <p>{form.error}</p>}
-          <form className={classes.form} noValidate onSubmit={handleSubmit}>
+          <div className='errorContainer'>{form.error && <p>{form.error}</p>}</div>
+          <form noValidate onSubmit={handleSubmit}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -192,22 +168,18 @@ export default function SignupForm(props) {
                   variant='outlined'
                 />
               </Grid>
+              <Grid item xs={12}>
+                <Button color='primary' disabled={!isFormValid()} fullWidth type='submit' variant='contained'>
+                  Sign Up
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Link className='loginLink' to='/login' variant='body2'>
+                  Already have an account? Log in
+                </Link>
+              </Grid>
             </Grid>
-            <Button
-              className={classes.submit}
-              color='primary'
-              disabled={!isFormValid()}
-              fullWidth
-              type='submit'
-              variant='contained'>
-              Sign Up
-            </Button>
           </form>
-          <Typography component='h6'>
-            <Link to='/login' variant='body2'>
-              Already have an account? Sign in
-            </Link>
-          </Typography>
         </CardContent>
       </Card>
     </div>
