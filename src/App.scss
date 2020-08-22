@@ -1,12 +1,39 @@
+// Pages
+@import './pages/Blog/_Blog.scss';
+@import './pages/Catering/_Catering.scss';
+@import './pages/Coupons/_Coupons.scss';
+@import './pages/Home/_Home.scss';
+@import './pages/Login/_Login.scss';
+@import './pages/Menu/_Menu.scss';
+@import './pages/Profile/_Profile.scss';
+@import './pages/Signup/_Signup.scss';
+
+// Components
+@import './components/Cart/_Cart.scss';
+@import './components/LoginForm/_LoginForm.scss';
+@import './components/Navbar/_Navbar.scss';
+@import './components/ProfileForm/_ProfileForm.scss';
+@import './components/SignupForm/_SignupForm.scss';
+@import './components/SiteNav/_SiteNav.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .app-outer-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  margin: 0;
-  padding: 0;
 
   .app-inner-container {
-    display: flex;
+    background-color: rgb(251, 233, 202);
     flex-grow: 1;
   }
+}
+
+.pageContainer {
+  flex-grow: 1;
+  margin-top: 7rem;
 }

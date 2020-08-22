@@ -1,3 +1,197 @@
+.pageContainer {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-top: 7rem;
+}
+
+.cart {
+  color: white;
+}
+
+.loginContainer h4 {
+  margin: 1rem;
+  position: relative;
+}
+
+.loginContainer p {
+  color: red;
+  font-size: 1rem;
+  position: absolute;
+  top: 14.25rem;
+}
+
+.loginContainer a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.loginContainer a:visited {
+  color: blue;
+}
+
+.navbarOuterContainer {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  background-color: black;
+  -webkit-box-shadow: 0rem 0.1rem 0.25rem 0rem #646464;
+          box-shadow: 0rem 0.1rem 0.25rem 0rem #646464;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 7rem;
+}
+
+.navbarOuterContainer a {
+  text-decoration: none;
+}
+
+.navbarOuterContainer a:visited {
+  color: white;
+}
+
+.navbarOuterContainer .imageContainer {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 5.65rem;
+}
+
+.navbarOuterContainer img {
+  height: 7rem;
+  width: 7rem;
+}
+
+.navbarInnerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 7rem;
+  position: relative;
+  width: 100%;
+  list-style: none;
+}
+
+.navbarInnerContainer .upperNav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #b71c1c;
+  background: linear-gradient(135deg, #b71c1c 0%, #b71c1c 20%, #c62828 40%, #c62828 60%, #d32f2f 80%, #d32f2f 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  height: 3rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  text-shadow: 1px 1px black;
+}
+
+.navbarInnerContainer .upperNav #accountMenu a {
+  text-decoration: none;
+}
+
+.navbarInnerContainer .upperNav .userName {
+  color: #00713e;
+  margin: 0 0.15rem;
+  font-weight: 600;
+}
+
+.navbarInnerContainer .lowerNav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Marcellus', serif;
+  font-size: 1.5rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  height: 4rem;
+}
+
+.navbarInnerContainer .lowerNav .menuLinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+}
+
+.navbarInnerContainer .lowerNav .menuLinks a {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 0 2rem;
+}
+
+.navbarInnerContainer .lowerNav .menuLinks a:hover {
+  background-color: rgba(100, 100, 100, 0.2);
+}
+
+.navbarInnerContainer .lowerNav .cart {
+  margin-right: 1rem;
+}
+
+.signupContainer h4 {
+  margin: 1rem;
+  position: relative;
+}
+
+.signupContainer p {
+  color: red;
+  font-size: 1rem;
+  position: absolute;
+  top: 14.25rem;
+}
+
+.signupContainer a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.signupContainer a:visited {
+  color: blue;
+}
+
+.signupCard {
+  width: 60%;
+  margin: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .app-outer-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,16 +201,19 @@
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100vh;
-  margin: 0;
-  padding: 0;
 }
 
 .app-outer-container .app-inner-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  background-color: #fbe9ca;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.pageContainer {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-top: 7rem;
 }
 /*# sourceMappingURL=App.css.map */
