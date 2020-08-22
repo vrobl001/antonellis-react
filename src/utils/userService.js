@@ -1,6 +1,6 @@
 import tokenService from './tokenService';
 
-const BASE_URL = '/api/users/';
+const BASE_URL = '/api/user/';
 
 function login(creds) {
   return fetch(BASE_URL + 'login', {
@@ -37,7 +37,7 @@ function signup(user) {
         return response.json();
       } else {
         console.log(response);
-        throw new Error(response);
+        throw new Error('Email already taken!');
       }
     })
     .then(({ token }) => tokenService.setToken(token));
