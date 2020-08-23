@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import Cart from '../Cart/Cart';
+import NavTabs from './NavTabs/NavTabs';
 import '../../App.css';
 
 // Material UI
@@ -11,14 +12,72 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
 export default function Navbar(props) {
+  const [activeNav, setActive] = useState({
+    navTabs: [
+      {
+        title: 'Menu',
+        link: '/menu',
+        active: false,
+      },
+      {
+        title: 'Catering',
+        link: '/catering',
+        active: false,
+      },
+      {
+        title: 'Blog',
+        link: '/blog',
+        active: false,
+      },
+      {
+        title: 'Coupons',
+        link: '/coupons',
+        active: false,
+      },
+    ],
+  });
+
   const [anchorEl, setAnchorEl] = React.useState(null);
+
   const open = Boolean(anchorEl);
+
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  function handleActivePage(e) {
+    let name = e.target.name;
+    setActive((prevState) => ({
+      navTabs: prevState.navTabs.map((tab, idx) =>
+        idx.toString() === name ? { ...tab, active: !tab.active } : { ...tab, active: false }
+      ),
+    }));
+  }
+
+  function clearActivePage(e) {
+    setActive((prevState) => ({
+      navTabs: prevState.navTabs.map((tab, idx) =>
+        !idx ? { ...tab, active: !tab.active } : { ...tab, active: false }
+      ),
+    }));
+  }
+
+  const navTabs = activeNav.navTabs.map((tab, idx) =>
+    tab.active === true ? (
+      <Link key={idx} to={tab.link} name={idx} onClick={handleActivePage} style={{ borderBottom: '2px solid white' }}>
+        {tab.title}
+      </Link>
+    ) : (
+      <Link key={idx} to={tab.link} name={idx} onClick={handleActivePage}>
+        {tab.title}
+      </Link>
+    )
+  );
+
   const conditionalUI = userService.getUser() ? (
     <>
       <p>
@@ -74,19 +133,14 @@ export default function Navbar(props) {
   return (
     <div className='navbarOuterContainer'>
       <div className='imageContainer'>
-        <Link to='/'>
+        <Link onClick={clearActivePage} to='/'>
           <img src='/images/brand-logo.svg' />
         </Link>
       </div>
       <div className='navbarInnerContainer'>
         <div className='upperNav'>{conditionalUI}</div>
         <div className='lowerNav'>
-          <div className='menuLinks'>
-            <Link to='/menu'>Menu</Link>
-            <Link to='/catering'>Catering</Link>
-            <Link to='/blog'>Blog</Link>
-            <Link to='/coupons'>Coupons</Link>
-          </div>
+          <div className='menuLinks'>{navTabs}</div>
           <div className='cart'>
             <Cart />
           </div>
