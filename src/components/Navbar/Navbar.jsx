@@ -58,14 +58,6 @@ export default function Navbar(props) {
     }));
   }
 
-  function clearActivePage(e) {
-    setActive((prevState) => ({
-      navTabs: prevState.navTabs.map((tab, idx) =>
-        !idx ? { ...tab, active: !tab.active } : { ...tab, active: false }
-      ),
-    }));
-  }
-
   const navTabs = activeNav.navTabs.map((tab, idx) =>
     tab.active === true ? (
       <Link key={idx} to={tab.link} name={idx} onClick={handleActivePage} style={{ borderBottom: '2px solid white' }}>
@@ -133,7 +125,7 @@ export default function Navbar(props) {
   return (
     <div className='navbarOuterContainer'>
       <div className='imageContainer'>
-        <Link onClick={clearActivePage} to='/'>
+        <Link onClick={handleActivePage} to='/'>
           <img src='/images/brand-logo.svg' />
         </Link>
       </div>
