@@ -26,22 +26,16 @@ export default function SignupForm(props) {
   const handleChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
-    if (name === 'firstName' || name === 'lastName') {
-      setState((prevState) => ({
-        ...form,
-        error: '',
-        userName: {
-          ...prevState.userName,
-          [name]: value,
-        },
-      }));
-    } else {
-      setState({
-        ...form,
-        error: '',
+
+    setState((prevState) => ({
+      ...form,
+      error: '',
+      [name]: value,
+      userName: {
+        ...prevState.userName,
         [name]: value,
-      });
-    }
+      },
+    }));
   };
 
   const handlePasswordMatch = () => {
