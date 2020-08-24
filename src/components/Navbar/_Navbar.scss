@@ -8,6 +8,7 @@
   width: 100%;
   height: 7rem;
   a {
+    color: white;
     text-decoration: none;
   }
   a:visited {
@@ -71,7 +72,7 @@
     justify-content: flex-end;
     width: 100%;
     height: 4rem;
-    .menuLinks {
+    .pageLinks {
       display: flex;
       justify-content: space-evenly;
       height: 100%;
