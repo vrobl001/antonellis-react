@@ -34,10 +34,6 @@ export default class App extends Component {
     this.setState({ user: userService.getUser() });
   };
 
-  componentDidMount = () => {
-    console.log('user', this.state.user);
-  };
-
   render() {
     return (
       <div className='app-outer-container'>
